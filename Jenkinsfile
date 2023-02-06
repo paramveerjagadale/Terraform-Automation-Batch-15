@@ -13,6 +13,18 @@ pipeline {
                 sh ("terraform init -reconfigure") 
             }
         }
+
+        stage ("fmt") {
+            steps {
+                sh ('terraform fmt') 
+            }
+        }
+
+        stage ("validate") {
+            steps {
+                sh ('terraform validate') 
+            }
+        }
         
         stage ("plan") {
             steps {
